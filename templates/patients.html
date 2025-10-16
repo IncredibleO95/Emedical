@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patients</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h2>Patients List</h2>
+  <a href="{{ url_for('dashboard') }}">🏠 Dashboard</a> |
+  <a href="{{ url_for('add_patient') }}">➕ Add New Patient</a> |
+  <a href="{{ url_for('logout') }}">🚪 Logout</a>
+  <br><br>
+
+  <table border="1" align="center" cellpadding="10">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Diagnosis</th>
+      <th>Actions</th>
+    </tr>
+    {% for patient in patients %}
+    <tr>
+      <td>{{ patient.id }}</td>
+      <td>{{ patient.name }}</td>
+      <td>{{ patient.age }}</td>
+      <td>{{ patient.gender }}</td>
+      <td>{{ patient.diagnosis }}</td>
+      <td>
+        <a href="{{ url_for('edit_patient', id=patient.id) }}">Edit</a> |
+        <a href="{{ url_for('delete_patient', id=patient.id) }}" onclick="return confirm('Delete this patient?')">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
