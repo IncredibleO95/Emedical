@@ -1,0 +1,15 @@
+hospital_system/
+│
+├── app.py
+├── requirements.txt
+├── static/
+│   └── css/style.css
+│
+└── templates/
+    ├── index.html
+    ├── login.html
+    ├── register.html
+    ├── dashboard.html
+    ├── profile.html
+    ├── patients.html
+    └── patient_form.html
