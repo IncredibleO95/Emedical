@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ action }} Patient</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h2>{{ action }} Patient</h2>
+  <form method="POST">
+    <input type="text" name="name" placeholder="Full Name" value="{{ patient.name if patient else '' }}" required><br>
+    <input type="number" name="age" placeholder="Age" value="{{ patient.age if patient else '' }}" required><br>
+    <input type="text" name="gender" placeholder="Gender" value="{{ patient.gender if patient else '' }}" required><br>
+    <input type="text" name="diagnosis" placeholder="Diagnosis" value="{{ patient.diagnosis if patient else '' }}" required><br>
+    <button type="submit">{{ action }} Patient</button>
+  </form>
+  <a href="{{ url_for('patients') }}">Back to Patients List</a>
+</body>
+</html>
